@@ -922,7 +922,7 @@ elif page == "💾 Model I/O":
                 <div class='section-title'>📌 How to reload this model in Python</div>
                 <pre style='color:#e6edf3;background:#0d1117;padding:1rem;border-radius:8px;font-size:.82rem;'>
 import pickle
-from Main_script2 import DrugGeneInteractionPrioritizer
+from main_script2 import DrugGeneInteractionPrioritizer
 
 with open("dgi_model.pkl", "rb") as f:
     prioritizer = pickle.load(f)
@@ -954,3 +954,4 @@ results = prioritizer.prioritize_interactions(
                     st.error("File is not a valid trained DrugGeneInteractionPrioritizer object.")
             except Exception as e:
                 st.error(f"Failed to load model: {e}")
+
