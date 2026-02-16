@@ -25,15 +25,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ── import the core engine ─────────────────────────────────────────────────────
-import importlib.util
-import os
-script_dir = os.path.dirname(os.path.abspath(__file__))
-spec = importlib.util.spec_from_file_location("main_script2", os.path.join(script_dir, "Main script2.py"))
-main_script2 = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(main_script2)
-DrugGeneInteractionPrioritizer = main_script2.DrugGeneInteractionPrioritizer
-generate_synthetic_data = main_script2.generate_synthetic_data
+# ── import the core engine ─────────────────────────────────────────────
+from main_script2 import DrugGeneInteractionPrioritizer, generate_synthetic_data
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  CUSTOM CSS
@@ -954,4 +947,5 @@ results = prioritizer.prioritize_interactions(
                     st.error("File is not a valid trained DrugGeneInteractionPrioritizer object.")
             except Exception as e:
                 st.error(f"Failed to load model: {e}")
+
 
